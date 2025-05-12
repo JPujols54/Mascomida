@@ -8,8 +8,8 @@ import vista.Carnes;
 import vista.Bebidas;
 import vista.Stars;
 import vista.Vegetales;
-import vista.Combos;
 import vista.Especiales;
+import vista.Combo;
 
 
 public class Home extends javax.swing.JFrame {
@@ -291,13 +291,13 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_bebidasTXTMouseClicked
 
     private void espeTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_espeTXTMouseClicked
-       Especiales espe= new Especiales();
+       Combo espe= new Combo();
        espe.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_espeTXTMouseClicked
 
     private void ComboTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboTXTMouseClicked
-        Combos combo = new Combos();
+        Especiales combo = new Especiales();
         combo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ComboTXTMouseClicked
