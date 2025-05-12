@@ -18,6 +18,12 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(logo, "src/imagenes/logo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(espeTXT, "src/imagenes/btnEspeciales.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(carneTXT, "src/imagenes/btnCarne.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(vegeTXT, "src/imagenes/btnVege.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(bebidasTXT, "src/imagenes/btnBebi.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(ComboTXT, "src/imagenes/btnCombo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(starsTXT, "");
     }
 
     /**
@@ -55,10 +61,10 @@ public class Home extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(241, 167, 18));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header.setBackground(new java.awt.Color(241, 167, 18));
+        header.setBackground(new java.awt.Color(51, 51, 51));
         header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
@@ -80,13 +86,12 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, -20, 830, 160));
 
-        jPanel2.setBackground(new java.awt.Color(241, 167, 18));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(241, 167, 18));
 
         btnVegetales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnVegetales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        vegeTXT.setText("jLabel3");
         vegeTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 vegeTXTMouseClicked(evt);
@@ -109,7 +114,6 @@ public class Home extends javax.swing.JFrame {
         btnBebidas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnBebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        bebidasTXT.setText("jLabel4");
         bebidasTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bebidasTXTMouseClicked(evt);
@@ -132,7 +136,6 @@ public class Home extends javax.swing.JFrame {
         btnCarnes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnCarnes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        carneTXT.setText("jLabel2");
         carneTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carneTXTMouseClicked(evt);
@@ -155,7 +158,6 @@ public class Home extends javax.swing.JFrame {
         btnStars.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnStars.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        starsTXT.setText("jLabel7");
         starsTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 starsTXTMouseClicked(evt);
@@ -176,7 +178,6 @@ public class Home extends javax.swing.JFrame {
         btnCombos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnCombos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ComboTXT.setText("jLabel6");
         ComboTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComboTXTMouseClicked(evt);
@@ -197,7 +198,6 @@ public class Home extends javax.swing.JFrame {
         btnEspeciales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnEspeciales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        espeTXT.setText("jLabel5");
         espeTXT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 espeTXTMouseClicked(evt);

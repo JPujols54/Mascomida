@@ -34,7 +34,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="12" green="a7" red="f1" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -50,7 +50,7 @@
         <Container class="javax.swing.JPanel" name="header">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="12" green="a7" red="f1" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -101,7 +101,7 @@
             <Container class="javax.swing.JPanel" name="jPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="12" green="a7" red="f1" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="a7" red="f1" type="rgb"/>
@@ -193,9 +193,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="vegeTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel3"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="vegeTXTMouseClicked"/>
                       </Events>
@@ -231,9 +228,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="bebidasTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel4"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bebidasTXTMouseClicked"/>
                       </Events>
@@ -269,9 +263,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="carneTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel2"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carneTXTMouseClicked"/>
                       </Events>
@@ -304,9 +295,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="starsTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel7"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="starsTXTMouseClicked"/>
                       </Events>
@@ -339,9 +327,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="ComboTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel6"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ComboTXTMouseClicked"/>
                       </Events>
@@ -377,9 +362,6 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="espeTXT">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel5"/>
-                      </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="espeTXTMouseClicked"/>
                       </Events>

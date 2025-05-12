@@ -4,10 +4,6 @@
  */
 package vista;
 
-/**
- *
- * @author justi
- */
 public class Combos extends javax.swing.JFrame {
 
     /**
@@ -39,6 +35,9 @@ public class Combos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(241, 167, 17));

@@ -4,10 +4,7 @@
  */
 package vista;
 
-/**
- *
- * @author justi
- */
+
 public class Carrito extends javax.swing.JFrame {
 
     /**
