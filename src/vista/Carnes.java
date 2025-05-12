@@ -1,23 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
+
+import javax.swing.JOptionPane;
+import vista.Carrito;
 
 public class Carnes extends javax.swing.JFrame {
 
+    public int precio = 0;
     public int pepe = 499;
     public int queso = 499;
     public int jamon = 499;
     public int res = 499;
+    public String selecionado = null;
 
-    
+    private Carrito ventanaCarrito;
+
     public Carnes() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jamonTXT, "src/imagenes/13.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(pepTXT, "src/imagenes/11.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(quesoTXT, "src/imagenes/14.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(resTXT, "src/imagenes/12.png");
+        ventanaCarrito = new Carrito();
     }
 
     @SuppressWarnings("unchecked")
@@ -28,9 +31,9 @@ public class Carnes extends javax.swing.JFrame {
         iconVariable = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JLabel();
         btnVerCarrito = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        verCarritoTXT = new javax.swing.JLabel();
         btnCarrito = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        carritoTXT = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         btnPepe = new javax.swing.JPanel();
@@ -52,34 +55,46 @@ public class Carnes extends javax.swing.JFrame {
         txtPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtPrecio.setText("Precio Total: ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Ver carrito");
+        verCarritoTXT.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        verCarritoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        verCarritoTXT.setText("Ver carrito");
+        verCarritoTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        verCarritoTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verCarritoTXTMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnVerCarritoLayout = new javax.swing.GroupLayout(btnVerCarrito);
         btnVerCarrito.setLayout(btnVerCarritoLayout);
         btnVerCarritoLayout.setHorizontalGroup(
             btnVerCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+            .addComponent(verCarritoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
         );
         btnVerCarritoLayout.setVerticalGroup(
             btnVerCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+            .addComponent(verCarritoTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Añadir al carrito");
+        carritoTXT.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        carritoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        carritoTXT.setText("Añadir al carrito");
+        carritoTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carritoTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carritoTXTMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnCarritoLayout = new javax.swing.GroupLayout(btnCarrito);
         btnCarrito.setLayout(btnCarritoLayout);
         btnCarritoLayout.setHorizontalGroup(
             btnCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+            .addComponent(carritoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
         );
         btnCarritoLayout.setVerticalGroup(
             btnCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+            .addComponent(carritoTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -87,11 +102,10 @@ public class Carnes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnVerCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
@@ -235,28 +249,44 @@ public class Carnes extends javax.swing.JFrame {
 
     private void jamonTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jamonTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/13.png");
-        txtPrecio.setText("Precio total: " + jamon);
-
+        precio = jamon;
+        txtPrecio.setText("Precio total: " + precio);
+        selecionado = "Pizza de Jamon";
     }//GEN-LAST:event_jamonTXTMouseClicked
 
     private void pepTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pepTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/11.png");
         txtPrecio.setText("Precio total: " + pepe);
+        selecionado = "Pizza de Peperoni";
     }//GEN-LAST:event_pepTXTMouseClicked
 
     private void resTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/12.png");
         txtPrecio.setText("Precio total: " + res);
+        selecionado = "Pizza de res";
     }//GEN-LAST:event_resTXTMouseClicked
 
     private void quesoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quesoTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/14.png");
         txtPrecio.setText("Precio total: " + queso);
+        selecionado = "Pizza de queso";
     }//GEN-LAST:event_quesoTXTMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void carritoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carritoTXTMouseClicked
+        if (precio == 0 && selecionado == null) {
+            JOptionPane.showMessageDialog(rootPane, "No has elegido un producto.");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "El producto " + selecionado + " se ha agregado al carrito satisfactoriamente");
+            ventanaCarrito.agregarProductoAlCarrito(selecionado,precio );
+        }
+        
+    }//GEN-LAST:event_carritoTXTMouseClicked
+
+    private void verCarritoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verCarritoTXTMouseClicked
+        ventanaCarrito.setVisible(true);
+        ventanaCarrito.setLocationRelativeTo(this);
+    }//GEN-LAST:event_verCarritoTXTMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -296,18 +326,16 @@ public class Carnes extends javax.swing.JFrame {
     private javax.swing.JPanel btnQueso;
     private javax.swing.JPanel btnRes;
     private javax.swing.JPanel btnVerCarrito;
+    private javax.swing.JLabel carritoTXT;
     private javax.swing.JLabel iconVariable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jamonTXT;
     private javax.swing.JLabel pepTXT;
     private javax.swing.JLabel quesoTXT;
     private javax.swing.JLabel resTXT;
     private javax.swing.JLabel txtPrecio;
+    private javax.swing.JLabel verCarritoTXT;
     // End of variables declaration//GEN-END:variables
 }

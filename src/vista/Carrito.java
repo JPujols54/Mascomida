@@ -4,14 +4,29 @@
  */
 package vista;
 
+import java.math.BigDecimal;
+import javax.swing.JOptionPane;
+import java.sql.*;
 
 public class Carrito extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Carrito
-     */
     public Carrito() {
         initComponents();
+        javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{"Producto", "Precio"}
+        );
+        jTable1.setModel(modelo);
+
+    }
+    private int total = 0;
+
+    public void agregarProductoAlCarrito(String nombre, int precio) {
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+        modelo.addRow(new Object[]{nombre, "$" + precio});
+
+        total += precio;
+        txtPrecio.setText("$" + total);
     }
 
     /**
@@ -84,6 +99,11 @@ public class Carrito extends javax.swing.JFrame {
         btnComprar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnComprar.setText("Comprar");
         btnComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarActionPerformed(evt);
+            }
+        });
 
         PrecioTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         PrecioTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,6 +147,47 @@ public class Carrito extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
+     // Verificar que haya productos en el carrito
+    if (jTable1.getRowCount() == 0) {
+        JOptionPane.showMessageDialog(this, "El carrito está vacío.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // Usar el nombre del usuario que inició sesión
+    String nombreCliente = Usuario; // <-- Aquí usas tu variable global
+    String direccion = JOptionPane.showInputDialog(this, "Ingrese la dirección de entrega:");
+
+    if (direccion == null || direccion.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar una dirección válida.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    try {
+        // Conectar a la base de datos
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizza_app", "root", "");
+        String sql = "INSERT INTO pedidos (nombre_cliente, direccion) VALUES (?, ?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, nombreCliente);
+        stmt.setString(2, direccion);
+
+        int resultado = stmt.executeUpdate();
+
+        if (resultado > 0) {
+            JOptionPane.showMessageDialog(this, "¡Pedido guardado exitosamente!");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo guardar el pedido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        stmt.close();
+        conn.close();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error en la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_btnComprarActionPerformed
 
     /**
      * @param args the command line arguments
