@@ -34,6 +34,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
+        btnEXIT = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         btnVegetales = new javax.swing.JPanel();
@@ -63,6 +64,17 @@ public class Home extends javax.swing.JFrame {
         header.setBackground(new java.awt.Color(51, 51, 51));
         header.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
+        btnEXIT.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnEXIT.setForeground(new java.awt.Color(255, 255, 255));
+        btnEXIT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEXIT.setText("X");
+        btnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEXIT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEXITMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
@@ -70,7 +82,9 @@ public class Home extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(607, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 547, Short.MAX_VALUE)
+                .addComponent(btnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,6 +92,10 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, -20, 830, 160));
@@ -304,6 +322,10 @@ public class Home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_starsTXTMouseClicked
 
+    private void btnEXITMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEXITMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnEXITMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +367,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel btnBebidas;
     private javax.swing.JPanel btnCarnes;
     private javax.swing.JPanel btnCombos;
+    private javax.swing.JLabel btnEXIT;
     private javax.swing.JPanel btnEspeciales;
     private javax.swing.JPanel btnStars;
     private javax.swing.JPanel btnVegetales;

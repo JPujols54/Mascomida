@@ -34,6 +34,7 @@ registro register = new registro();
         btnLogin = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
+        btnEXIT = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
 
         jLabel4.setBackground(new java.awt.Color(57, 36, 20));
@@ -42,6 +43,9 @@ registro register = new registro();
         jLabel4.setText("Iniciar Sesión");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -54,6 +58,11 @@ registro register = new registro();
         jLabel3.setText("La velocidad del sabor está aquí.");
 
         jPanel2.setBackground(new java.awt.Color(241, 167, 17));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(57, 36, 20));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -101,6 +110,11 @@ registro register = new registro();
             }
         });
 
+        btnEXIT.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnEXIT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEXIT.setText("X");
+        btnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -109,7 +123,9 @@ registro register = new registro();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addComponent(btnEXIT))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -123,14 +139,18 @@ registro register = new registro();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtpass)
-                            .addComponent(btnLogin))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                            .addComponent(btnLogin))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5))
+                    .addComponent(btnEXIT))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -231,10 +251,14 @@ registro register = new registro();
                 this.dispose();
 
             } else if (rol.equals("trabajador")) {
-                // Si es un Trabajador, hacer lo siguiente
+                
+                
                 
                 log.login(usuario, rol);
                  
+                ListaPedidos lista = new ListaPedidos();
+                lista.setVisible(true);
+                this.dispose();
 
                 } else {
                     // Si no encuentra al trabajador o hay un error en la base de datos
@@ -247,6 +271,10 @@ registro register = new registro();
         register.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jPanel2MouseClicked
 
     
     public static void main(String args[]) {
@@ -282,6 +310,7 @@ registro register = new registro();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnEXIT;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton jButton3;

@@ -12,7 +12,7 @@ public class fUsuarios {
     private String sSQL = "";
     
     public boolean register(vUsuario dts){
-     sSQL = "INSERT INTO usuarios (nombre_usuario, contrasena, , rol) VALUES (?, ?, ?)";
+     sSQL = "INSERT INTO usuarios (nombre_usuario, contrasena, rol) VALUES (?, ?, ?)";
      
      try {
             PreparedStatement pst = cn.prepareStatement(sSQL);
@@ -30,7 +30,7 @@ public class fUsuarios {
 }
     
     public String login(String usuario, String password) {
-        sSQL = "SELECT rol FROM usuarios WHERE nombre_usuario = ? AND password = ?";
+        sSQL = "SELECT rol FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?";
 
         try {
             PreparedStatement pst = cn.prepareStatement(sSQL);
