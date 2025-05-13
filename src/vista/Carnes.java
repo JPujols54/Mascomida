@@ -256,19 +256,22 @@ public class Carnes extends javax.swing.JFrame {
 
     private void pepTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pepTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/11.png");
-        txtPrecio.setText("Precio total: " + pepe);
+        precio = pepe;
+        txtPrecio.setText("Precio total: " + precio);
         selecionado = "Pizza de Peperoni";
     }//GEN-LAST:event_pepTXTMouseClicked
 
     private void resTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/12.png");
-        txtPrecio.setText("Precio total: " + res);
+        precio = res;
+        txtPrecio.setText("Precio total: " + precio);
         selecionado = "Pizza de res";
     }//GEN-LAST:event_resTXTMouseClicked
 
     private void quesoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quesoTXTMouseClicked
         rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/14.png");
-        txtPrecio.setText("Precio total: " + queso);
+        precio = queso;
+        txtPrecio.setText("Precio total: " + precio);
         selecionado = "Pizza de queso";
     }//GEN-LAST:event_quesoTXTMouseClicked
 

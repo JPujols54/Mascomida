@@ -4,12 +4,17 @@
  */
 package vista;
 
+import datos.vUsuario;
+import logica.fUsuarios;
 import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
+
 public class Carrito extends javax.swing.JFrame {
 
+    vUsuario user = new vUsuario();
+    
     public Carrito() {
         initComponents();
         javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(
@@ -156,7 +161,7 @@ public class Carrito extends javax.swing.JFrame {
     }
 
     // Usar el nombre del usuario que inició sesión
-    String nombreCliente = Usuario; // <-- Aquí usas tu variable global
+    String nombreCliente = user.getNombre_usuario(); // <-- Aquí usas tu variable global
     String direccion = JOptionPane.showInputDialog(this, "Ingrese la dirección de entrega:");
 
     if (direccion == null || direccion.trim().isEmpty()) {

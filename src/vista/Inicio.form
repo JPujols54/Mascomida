@@ -63,7 +63,7 @@
                   <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="279" max="-2" attributes="0"/>
+                          <Component id="logo" min="-2" pref="279" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -83,7 +83,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="logo" min="-2" pref="183" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -144,7 +144,7 @@
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnLogin1" min="-2" pref="164" max="-2" attributes="0"/>
+                                      <Component id="btnRegister" min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="txtpass" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnLogin" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -175,7 +175,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnLogin1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="btnRegister" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
@@ -202,7 +202,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
+                <Property name="text" type="java.lang.String" value="Nombre de usuario:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtusuario">
@@ -223,7 +223,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtpass">
@@ -270,24 +270,21 @@
                 <Property name="text" type="java.lang.String" value="No tengo una cuenta"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLogin1">
+            <Component class="javax.swing.JButton" name="btnRegister">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
+                <Property name="text" type="java.lang.String" value="Crear una"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogin1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="logo">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/mascomm.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>

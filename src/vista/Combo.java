@@ -4,12 +4,19 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
 
 public class Combo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Especiales
-     */
+    public int precio = 0;
+    public int box = 499;
+    public int triple = 499;
+    public int familia = 499;
+    public int infantil = 499;
+    public String selecionado = null;
+
+    private Carrito ventanaCarrito;
+
     public Combo() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(boxTXT, "src/imagenes/15.png");
@@ -28,6 +35,12 @@ public class Combo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        iconVariable = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JLabel();
+        btnVerCarrito = new javax.swing.JPanel();
+        verCarritoTXT = new javax.swing.JLabel();
+        btnCarrito = new javax.swing.JPanel();
+        carritoTXT = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btn3x2 = new javax.swing.JPanel();
@@ -44,20 +57,96 @@ public class Combo extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(8, 17, 12));
 
+        txtPrecio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPrecio.setText("Precio Total: ");
+
+        verCarritoTXT.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        verCarritoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        verCarritoTXT.setText("Ver carrito");
+        verCarritoTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        verCarritoTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verCarritoTXTMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnVerCarritoLayout = new javax.swing.GroupLayout(btnVerCarrito);
+        btnVerCarrito.setLayout(btnVerCarritoLayout);
+        btnVerCarritoLayout.setHorizontalGroup(
+            btnVerCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(verCarritoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+        );
+        btnVerCarritoLayout.setVerticalGroup(
+            btnVerCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(verCarritoTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+        );
+
+        carritoTXT.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        carritoTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        carritoTXT.setText("Añadir al carrito");
+        carritoTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        carritoTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carritoTXTMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnCarritoLayout = new javax.swing.GroupLayout(btnCarrito);
+        btnCarrito.setLayout(btnCarritoLayout);
+        btnCarritoLayout.setHorizontalGroup(
+            btnCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(carritoTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+        );
+        btnCarritoLayout.setVerticalGroup(
+            btnCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(carritoTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(iconVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnVerCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(iconVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnVerCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 690));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 690));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        tripleTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tripleTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tripleTXTMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn3x2Layout = new javax.swing.GroupLayout(btn3x2);
         btn3x2.setLayout(btn3x2Layout);
@@ -70,16 +159,36 @@ public class Combo extends javax.swing.JFrame {
             .addComponent(tripleTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
         );
 
+        btnBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        boxTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boxTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boxTXTMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout btnBoxLayout = new javax.swing.GroupLayout(btnBox);
         btnBox.setLayout(btnBoxLayout);
         btnBoxLayout.setHorizontalGroup(
             btnBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(boxTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+            .addGap(0, 288, Short.MAX_VALUE)
+            .addGroup(btnBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(boxTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
         );
         btnBoxLayout.setVerticalGroup(
             btnBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(boxTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+            .addGap(0, 195, Short.MAX_VALUE)
+            .addGroup(btnBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(boxTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
+
+        familiaTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        familiaTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                familiaTXTMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnFamiliaLayout = new javax.swing.GroupLayout(btnFamilia);
         btnFamilia.setLayout(btnFamiliaLayout);
@@ -91,6 +200,13 @@ public class Combo extends javax.swing.JFrame {
             btnFamiliaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(familiaTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
         );
+
+        infantilTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        infantilTXT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infantilTXTMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnInfantilLayout = new javax.swing.GroupLayout(btnInfantil);
         btnInfantil.setLayout(btnInfantilLayout);
@@ -126,7 +242,7 @@ public class Combo extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(btn3x2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnInfantil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFamilia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -144,6 +260,49 @@ public class Combo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tripleTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tripleTXTMouseClicked
+        rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/16.png");
+         precio = triple;
+        txtPrecio.setText("Precio total: " + precio);
+        selecionado = "Combo de 3 cajas";
+    }//GEN-LAST:event_tripleTXTMouseClicked
+
+    private void verCarritoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verCarritoTXTMouseClicked
+        ventanaCarrito.setVisible(true);
+        ventanaCarrito.setLocationRelativeTo(this);
+    }//GEN-LAST:event_verCarritoTXTMouseClicked
+
+    private void carritoTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carritoTXTMouseClicked
+        if (precio == 0 && selecionado == null) {
+            JOptionPane.showMessageDialog(rootPane, "No has elegido un producto.");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "El producto " + selecionado + " se ha agregado al carrito satisfactoriamente");
+            ventanaCarrito.agregarProductoAlCarrito(selecionado, precio);
+        }
+
+    }//GEN-LAST:event_carritoTXTMouseClicked
+
+    private void boxTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxTXTMouseClicked
+        rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/15.png");
+        precio = box;
+        txtPrecio.setText("Precio total: " + precio);
+        selecionado = "My box";
+    }//GEN-LAST:event_boxTXTMouseClicked
+
+    private void infantilTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infantilTXTMouseClicked
+       rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/18.png");  
+       precio = infantil;
+        txtPrecio.setText("Precio total: " + precio);
+        selecionado = "Combo Infantil";
+    }//GEN-LAST:event_infantilTXTMouseClicked
+
+    private void familiaTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_familiaTXTMouseClicked
+        rsscalelabel.RSScaleLabel.setScaleLabel(iconVariable, "src/imagenes/17.png");
+        precio = familia;
+        txtPrecio.setText("Precio total: " + precio);
+        selecionado = "Combo Familiar";
+    }//GEN-LAST:event_familiaTXTMouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,13 +344,19 @@ public class Combo extends javax.swing.JFrame {
     private javax.swing.JLabel boxTXT;
     private javax.swing.JPanel btn3x2;
     private javax.swing.JPanel btnBox;
+    private javax.swing.JPanel btnCarrito;
     private javax.swing.JPanel btnFamilia;
     private javax.swing.JPanel btnInfantil;
+    private javax.swing.JPanel btnVerCarrito;
+    private javax.swing.JLabel carritoTXT;
     private javax.swing.JLabel familiaTXT;
+    private javax.swing.JLabel iconVariable;
     private javax.swing.JLabel infantilTXT;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel tripleTXT;
+    private javax.swing.JLabel txtPrecio;
+    private javax.swing.JLabel verCarritoTXT;
     // End of variables declaration//GEN-END:variables
 }
