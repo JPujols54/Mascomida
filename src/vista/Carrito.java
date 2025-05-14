@@ -157,6 +157,8 @@ public class Carrito extends javax.swing.JFrame {
         PrecioTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PrecioTotal.setText("Precio Total:");
 
+        txtPrecio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout fondoComprarLayout = new javax.swing.GroupLayout(fondoComprar);
         fondoComprar.setLayout(fondoComprarLayout);
         fondoComprarLayout.setHorizontalGroup(
